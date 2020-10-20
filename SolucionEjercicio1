@@ -1,0 +1,44 @@
+public class Tutoria1 {
+	public static void main(String[] args) {
+		System.out.println(sumaNPrimerosPrimos(50));
+		System.out.println(sumaPrimosNPrimerosNumeros(50));
+
+		
+	}
+
+	// función que devuelve la suma de los números primos de los N primeros números. 
+	public static long sumaPrimosNPrimerosNumeros(long numeroMaximo) {
+		long sumaPrimos=0;
+		for (long i=1;i<=numeroMaximo;i++) {
+			if (esPrimo(i)) {
+				sumaPrimos+=i;
+			} 
+		}
+		return sumaPrimos;
+	}
+
+	// función que devuelve la suma de los N primeros números primos.
+	public static long sumaNPrimerosPrimos(long numeroDePrimos) {
+		long cuentaPrimos=0;
+		long sumaPrimos=0;
+		long numero=1;
+		while (cuentaPrimos<numeroDePrimos) {
+			if (esPrimo(numero)) {
+				sumaPrimos+=numero;
+				cuentaPrimos++;
+			}
+			numero++;
+		}
+		return sumaPrimos;
+	}
+
+	// función que devuelve cierto si un número dado es primo y falso en caso contrario.
+	public static boolean esPrimo(long numero) {
+		long i;
+		i=2;
+		while (numero % i != 0 && i < numero){
+			i++;
+		}
+		return i==numero || numero==1;
+	}
+}
